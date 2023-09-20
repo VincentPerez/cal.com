@@ -9,6 +9,7 @@ type Props = {
   title: string;
   description?: string;
   checked: boolean;
+  hideOnChecked?: boolean;
   disabled?: boolean;
   LockedIcon?: React.ReactNode;
   onCheckedChange?: (checked: boolean) => void;
@@ -18,6 +19,7 @@ type Props = {
 
 function SettingsToggle({
   checked,
+  hideOnChecked,
   onCheckedChange,
   description,
   LockedIcon,
@@ -53,7 +55,9 @@ function SettingsToggle({
           </div>
           {children && (
             <div className="lg:ml-14" ref={animateRef}>
-              {checked && <div className="mt-4">{children}</div>}
+              {((!hideOnChecked && checked) || (hideOnChecked && !checked)) && (
+                <div className="mt-4">{children}</div>
+              )}
             </div>
           )}
         </fieldset>

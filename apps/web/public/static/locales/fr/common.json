@@ -2056,5 +2056,7 @@
   "no_members_found": "Aucun membre trouvé",
   "event_setup_length_error": "Configuration de l'événement : la durée doit être d'au moins 1 minute.",
   "availability_schedules": "Horaires de disponibilité",
+  "add_to_all_team_members": "Ajouter automatiquement à tous les membres de l'équipe",
+  "including_future_members": "Y compris les membres qui rejoindront l'équipe",
   "ADD_NEW_STRINGS_ABOVE_THIS_LINE_TO_PREVENT_MERGE_CONFLICTS": "↑↑↑↑↑↑↑↑↑↑↑↑↑ Ajoutez vos nouvelles chaînes ci-dessus ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑"
 }

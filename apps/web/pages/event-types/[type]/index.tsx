@@ -90,6 +90,7 @@ export type FormValues = {
   requiresBookerEmailVerification: boolean;
   recurringEvent: RecurringEvent | null;
   schedulingType: SchedulingType | null;
+  addToAllTeamMembers: boolean;
   hidden: boolean;
   hideCalendarNotes: boolean;
   hashedLink: string | undefined;

@@ -11,7 +11,7 @@ import CheckedTeamSelect from "@calcom/features/eventtypes/components/CheckedTea
 import ChildrenEventTypeSelect from "@calcom/features/eventtypes/components/ChildrenEventTypeSelect";
 import { useLocale } from "@calcom/lib/hooks/useLocale";
 import { SchedulingType } from "@calcom/prisma/enums";
-import { Label, Select } from "@calcom/ui";
+import { Label, Select, SettingsToggle } from "@calcom/ui";
 
 interface IUserToValue {
   id: number | null;
@@ -324,23 +324,38 @@ export const EventTeamTab = ({
     <div>
       {team && !isManagedEventType && (
         <div className="space-y-5">
+          <Label>{t("scheduling_type")}</Label>
           <div className="flex flex-col">
-            <Label>{t("scheduling_type")}</Label>
             <Controller<FormValues>
-              name="schedulingType"
+              name="addToAllTeamMembers"
+              defaultValue={false}
               render={({ field: { value, onChange } }) => (
-                <Select
-                  options={schedulingTypeOptions}
-                  value={schedulingTypeOptions.find((opt) => opt.value === value)}
-                  className="w-full"
-                  onChange={(val) => {
-                    onChange(val?.value);
-                  }}
-                />
+                <SettingsToggle
+                  title={t("add_to_all_team_members")}
+                  description={t("including_future_members")}
+                  checked={value}
+                  hideOnChecked={true}
+                  onCheckedChange={(e) => onChange(e)}>
+                  <div className="space-y-5">
+                    <Controller<FormValues>
+                      name="schedulingType"
+                      render={({ field: { value, onChange } }) => (
+                        <Select
+                          options={schedulingTypeOptions}
+                          value={schedulingTypeOptions.find((opt) => opt.value === value)}
+                          className="w-full"
+                          onChange={(val) => {
+                            onChange(val?.value);
+                          }}
+                        />
+                      )}
+                    />
+                    <Hosts teamMembers={teamMembersOptions} />
+                  </div>
+                </SettingsToggle>
               )}
             />
           </div>
-          <Hosts teamMembers={teamMembersOptions} />
         </div>
       )}
       {team && isManagedEventType && (

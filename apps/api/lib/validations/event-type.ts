@@ -34,6 +34,7 @@ export const schemaEventTypeBaseBodyParams = EventType.pick({
   eventName: true,
   timeZone: true,
   schedulingType: true,
+  addToAllTeamMembers: true,
   // START Limit future bookings
   periodType: true,
   periodStartDate: true,
@@ -122,6 +123,7 @@ export const schemaEventTypeReadPublic = EventType.pick({
   beforeEventBuffer: true,
   afterEventBuffer: true,
   schedulingType: true,
+  addToAllTeamMembers: true,
   price: true,
   currency: true,
   slotInterval: true,

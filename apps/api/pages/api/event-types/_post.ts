@@ -119,6 +119,9 @@ import ensureOnlyMembersAsHosts from "./_utils/ensureOnlyMembersAsHosts";
  *                 type: string
  *                 description: The type of scheduling if a Team event. Required for team events only
  *                 enum: [ROUND_ROBIN, COLLECTIVE]
+ *               addToAllTeamMembers:
+ *                 type: boolean
+ *                 description: If all team members should be added to the event
  *               price:
  *                 type: integer
  *                 description: Price of the event type booking
@@ -235,6 +238,7 @@ import ensureOnlyMembersAsHosts from "./_utils/ensureOnlyMembersAsHosts";
  *                  beforeEventBuffer: 0
  *                  afterEventBuffer: 0
  *                  schedulingType: "COLLECTIVE"
+ *                  addToAllTeamMembers: false
  *                  price: 0
  *                  currency: "usd"
  *                  slotInterval: null

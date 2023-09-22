@@ -28,6 +28,7 @@ const publicEventSelect = Prisma.validator<Prisma.EventTypeSelect>()({
   eventName: true,
   slug: true,
   schedulingType: true,
+  addToAllTeamMembers: true,
   length: true,
   locations: true,
   customInputs: true,

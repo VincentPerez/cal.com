@@ -124,6 +124,9 @@ import checkTeamEventEditPermission from "../_utils/checkTeamEventEditPermission
  *                 type: string
  *                 description: The type of scheduling if a Team event. Required for team events only
  *                 enum: [ROUND_ROBIN, COLLECTIVE]
+ *               addToAllTeamMembers:
+ *                 type: boolean
+ *                 description: If all team members should be added to the event
  *               price:
  *                 type: integer
  *                 description: Price of the event type booking

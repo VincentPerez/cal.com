@@ -268,6 +268,7 @@ const getEventTypesFromDB = async (eventTypeId: number) => {
       length: true,
       eventName: true,
       schedulingType: true,
+      addToAllTeamMembers: true,
       description: true,
       periodType: true,
       periodStartDate: true,
@@ -379,7 +380,7 @@ async function ensureAvailableUsers(
   }
 ) {
   const availableUsers: IsFixedAwareUser[] = [];
-  const duration = dayjs(input.dateTo).diff(input.dateFrom, 'minute');
+  const duration = dayjs(input.dateTo).diff(input.dateFrom, "minute");
 
   const originalBookingDuration = input.originalRescheduledBooking
     ? dayjs(input.originalRescheduledBooking.endTime).diff(
@@ -698,6 +699,9 @@ async function handler(
   log.debug(`Booking eventType ${eventTypeId} started`);
   const dynamicUserList = Array.isArray(reqBody.user) ? reqBody.user : getUsernameList(reqBody.user);
   if (!eventType) throw new HttpError({ statusCode: 404, message: "eventType.notFound" });
+
+  //const needToAddToAllTeamMembers = eventType.addToAllTeamMembers;
+  //TODO: retrieve all user of the team related to the eventType and book a meeting for all of them
 
   const isTeamEventType =
     !!eventType.schedulingType && ["COLLECTIVE", "ROUND_ROBIN"].includes(eventType.schedulingType);

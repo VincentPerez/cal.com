@@ -143,6 +143,7 @@ export default async function getEventTypeById({
         select: userSelect,
       },
       schedulingType: true,
+      addToAllTeamMembers: true,
       schedule: {
         select: {
           id: true,

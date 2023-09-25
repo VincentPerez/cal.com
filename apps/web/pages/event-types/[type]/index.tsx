@@ -261,6 +261,7 @@ const EventTypePage = (props: EventTypeSetupProps) => {
       periodType: eventType.periodType,
       periodCountCalendarDays: eventType.periodCountCalendarDays ? "1" : "0",
       schedulingType: eventType.schedulingType,
+      addToAllTeamMembers: eventType.addToAllTeamMembers,
       minimumBookingNotice: eventType.minimumBookingNotice,
       metadata,
       hosts: eventType.hosts,
